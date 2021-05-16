@@ -1,0 +1,25 @@
+name: ci
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'README.md'
+  pull_request:
+    paths-ignore:
+      - 'README.md'
+jobs:
+  test:
+    strategy:
+      matrix:
+        deno-version: [v1.x]
+        os: [macos-latest, ubuntu-latest]
+    name: deno lint
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: denoland/setup-deno@main
+        with:
+          deno-version: ${{ matrix.deno-version }}
+      - run: deno lint
+      - run: deno test --allow-env

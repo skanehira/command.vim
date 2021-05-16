@@ -4,24 +4,6 @@
 
 let s:line = ""
 
-fun! s:get_history() abort
-  let output = readfile(glob("~/.zsh_history"))
-  let history = []
-  let tmp = []
-  for line in output
-    if line =~ '\n$'
-      call add(tmp, line)
-    else
-      if !empty(tmp)
-        call add(history, join(tmp))
-        let tmp = []
-      endif
-      call add(history, line)
-    endif
-  endfor
-  return history
-endfun
-
 fun! command#complete#shell_history(findstart, base)
   if a:findstart
     let s:line = getline('.')

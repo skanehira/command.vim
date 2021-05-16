@@ -5,6 +5,10 @@ Execute shell commands in terminal
 - [denops.vim](https://github.com/vim-denops/denops.vim)
 - [deno](https://github.com/denoland/deno)
 
+## Supported OS
+- Linux
+- Mac
+
 ## Usage
 Open buffer for execute shel command.
 The buffer is enable autocomepletetion for shell history.

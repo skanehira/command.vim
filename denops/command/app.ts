@@ -52,7 +52,7 @@ main(async ({ vim }) => {
       const cmd = line[0];
       if (!cmd) {
         console.log("please input shell command");
-        await vim.cmd(`call feedkeys("i")`);
+        await vim.call("feedkeys", "i");
         return;
       }
 

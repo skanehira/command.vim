@@ -15,11 +15,12 @@ export async function updateShellHistory(shell: string, cmd: string) {
     throw new Error(`unsupported shell: ${shell}`);
   }
 
+  let line = `${cmd}\n`;
   if (shell === "fish") {
-    // TODO implement writing fish history
-  } else if (shell === "zsh" || shell === "bash") {
-    await Deno.writeFile(file, new TextEncoder().encode(`${cmd}\n`), {append: true});
+    const sec = Math.floor(Date.now() / 1000);
+    line = `- cmd: ${cmd}\n  when: ${sec}\n`;
   }
+  await Deno.writeFile(file, new TextEncoder().encode(line), { append: true });
 }
 
 export async function getShellHistory(shell: string): Promise<string[]> {

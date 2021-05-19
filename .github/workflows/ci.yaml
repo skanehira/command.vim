@@ -21,5 +21,7 @@ jobs:
       - uses: denoland/setup-deno@main
         with:
           deno-version: ${{ matrix.deno-version }}
-      - run: deno lint
-      - run: deno test --allow-env
+      - name: run lint
+        run: deno lint
+      - name: run test
+        run: deno test --allow-env

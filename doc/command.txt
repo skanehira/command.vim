@@ -1,0 +1,75 @@
+*command.txt*	Execute shell command in terminal
+
+Author: skanehira <sho19921005@gmail.com>
+License : MIT license  {{{
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+    The above copyright notice and this permission notice shall be included
+    in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+    CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+}}}
+
+==============================================================================
+CONTENTS					*command-contents*
+
+INTRODUCTION			|command-introduction|
+USAGE				|command-usage|
+INTERFACE			|command-interface|
+  COMMAND			  |command-commands|
+  KEY-MAPPINGS			  |command-key-mappings|
+TODO				|command-todo|
+CHANGELOG			|command-changelog|
+
+
+==============================================================================
+INTRODUCTION					*command-introduction*
+
+*command* is a Vim plugin that execute shell command in terminal
+
+Latest version:
+https://github.com/skanehira/command.vim
+
+
+==============================================================================
+USAGE						*command-usage*
+|CommandBufferOpen| Open buffer for execute shell command.
+The buffer is enable autocompletion for shell history.
+When you input shell commands and press <CR>, its would be executed in terminal.
+
+==============================================================================
+INTERFACE					*command-interface*
+
+------------------------------------------------------------------------------
+COMMAND						*command-commands*
+
+*CommandBufferOpen*
+  Open buffer for execute shell command.
+
+KEY-MAPPINGS					*command-key-mappings*
+
+`<Plug>(command_buffer_open)`
+  Open buffer for execute shell command.
+
+==============================================================================
+TODO						*command-todo*
+
+
+
+==============================================================================
+CHANGELOG					*command-changelog*
+
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:noet:fen:

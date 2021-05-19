@@ -9,8 +9,17 @@ const historyFile = {
 } as Record<string, string>;
 
 // TODO: write command to history file
-export function updateShellHistory(cmd: string): string {
-  return cmd;
+export async function updateShellHistory(shell: string, cmd: string) {
+  const file = historyFile[shell];
+  if (file === undefined) {
+    throw new Error(`unsupported shell: ${shell}`);
+  }
+
+  if (shell === "fish") {
+    // TODO implement writing fish history
+  } else if (shell === "zsh" || shell === "bash") {
+    await Deno.writeFile(file, new TextEncoder().encode(`${cmd}\n`), {append: true});
+  }
 }
 
 export async function getShellHistory(shell: string): Promise<string[]> {

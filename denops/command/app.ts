@@ -38,7 +38,7 @@ main(async ({ vim }) => {
         `setlocal buftype=nofile bufhidden=hide noswapfile nonumber nowrap ft=sh`,
       );
       await vim.cmd(
-        `inoremap <silent> <buffer> <CR> <Esc>:call denops#notify("${vim.name}", "executeShellCommand", [])<CR>`,
+        `inoremap <silent> <buffer> <CR> <Esc>:call denops#notify("${vim.name}", "executeShellCommand", [&shell])<CR>`,
       );
       await vim.cmd(`nnoremap <silent> <buffer> <C-c> :bw!<CR>`);
       await vim.cmd(`inoremap <silent> <buffer> <C-c> <Esc>:bw!<CR>`);
@@ -46,7 +46,9 @@ main(async ({ vim }) => {
     },
 
     // execute shell command throgh shell
-    async executeShellCommand() {
+    async executeShellCommand(arg: unknown): Promise<void> {
+      ensureString(arg);
+      const shell = path.basename(arg);
       // get inputed command
       const line = await vim.eval(`getbufline(bufnr(), 1)`) as string[];
       const cmd = line[0];
@@ -65,6 +67,9 @@ main(async ({ vim }) => {
         await vim.call(`term_start`, cmd);
         await vim.cmd(`nnoremap <buffer> <silent> <CR> :bw<CR>`);
       }
+
+      // save history to shell history file
+      await utils.updateShellHistory(shell, cmd);
     },
   });
 });

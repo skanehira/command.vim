@@ -62,7 +62,7 @@ main(async ({ vim }) => {
         await vim.cmd(`new`);
         await vim.call(`termopen`, cmd);
       } else {
-        await vim.call(`term_start`, cmd);
+        await vim.cmd(`terminal ++shell ${cmd}`);
         await vim.cmd(`nnoremap <buffer> <silent> <CR> :bw<CR>`);
       }
     },

@@ -17,8 +17,8 @@ Execute shell commands in terminal
   - fish
 
 ## Usage
-Open buffer for execute shel command.
-The buffer is enable autocomepletetion for shell history.
+Open buffer for execute shell command.
+The buffer is enable auto completion for shell history.
 
 ```
 :CommandBufferOpen

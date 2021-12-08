@@ -1,8 +1,5 @@
-import { Denops } from "https://deno.land/x/denops_std@v1.0.0-beta.0/mod.ts";
-import { ensureString } from "https://deno.land/x/unknownutil@v0.1.1/mod.ts";
-
+import { Denops, ensureString, path } from "./deps.ts";
 import * as utils from "./utils.ts";
-import * as path from "https://deno.land/std/path/mod.ts";
 
 export async function main(denops: Denops): Promise<void> {
   await denops.cmd(

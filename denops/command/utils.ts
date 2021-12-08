@@ -1,4 +1,4 @@
-import * as path from "https://deno.land/std/path/mod.ts";
+import { path } from "./deps.ts";
 
 const home = Deno.env.get("HOME") as string;
 
@@ -8,7 +8,6 @@ const historyFile = {
   fish: path.join(home, ".local/share/fish/fish_history"),
 } as Record<string, string>;
 
-// TODO: write command to history file
 export async function updateShellHistory(shell: string, cmd: string) {
   const file = historyFile[shell];
   if (file === undefined) {

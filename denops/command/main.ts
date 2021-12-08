@@ -57,11 +57,11 @@ export async function main(denops: Denops): Promise<void> {
 
       // open terminal with inputed command
       await denops.cmd(`bw!`);
+      await denops.cmd(`tabnew`);
       if (await denops.call(`has`, "nvim")) {
-        await denops.cmd(`new`);
         await denops.call(`termopen`, cmd);
       } else {
-        await denops.cmd(`terminal ++shell ${cmd}`);
+        await denops.cmd(`terminal ++curwin ++shell ${cmd}`);
         await denops.cmd(`nnoremap <buffer> <silent> <CR> :bw<CR>`);
       }
 
